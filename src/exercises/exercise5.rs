@@ -20,6 +20,7 @@ pub struct Video {
     bookmark: Vec<u32>,
 }
 
+#[derive(Debug, PartialEq)]
 pub struct IdTitlePair {
     id: u32,
     title: String,

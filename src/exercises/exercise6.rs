@@ -10,6 +10,7 @@
 // - Try creating a new vector and pushing items into it conditionally (if the rating is 5.0)
 // - Remember to return the new Vector from the function
 
+#[derive(Debug, PartialEq)]
 pub struct Video {
     id: u32,
     title: String,

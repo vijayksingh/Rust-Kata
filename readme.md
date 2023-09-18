@@ -18,8 +18,7 @@ Methods covered:
 ## How to use
 
 1. Clone this repo
-2. Run `cargo test` to run all tests
-3. Run `cargo test --test <filename>` to run test by filename. For example, `cargo test --test hello_world` will run `hello_world.rs` test.
+2. Run `RUSTFLAGS="--allow dead_code" cargo tests` to run all tests
 
 ## Possible improvements
 

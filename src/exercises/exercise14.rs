@@ -4,13 +4,36 @@
 struct Video {
     id: i32,
     title: String,
-    boxart: String,
+    boxart: Vec<Boxart>,
+    url: String,
+    rating: f32,
+    bookmark: Vec<Bookmark>,
+}
+
+#[derive(Debug)]
+pub struct Bookmark {
+    id: usize,
+    time: usize,
+}
+
+#[derive(Debug)]
+struct Boxart {
+    width: i32,
+    height: i32,
+    url: String,
 }
 
 #[derive(Debug)]
 struct MovieList {
     name: String,
     videos: Vec<Video>,
+}
+
+#[derive(Debug, PartialEq)]
+struct VideoInfo {
+    id: i32,
+    title: String,
+    boxart: String,
 }
 
 // Implement flat_map_video_info function
@@ -31,7 +54,7 @@ mod tests {
                     Video {
                         id: 70111470,
                         title: String::from("Die Hard"),
-                        boxarts: vec![
+                        boxart: vec![
                             Boxart {
                                 width: 150,
                                 height: 200,
@@ -54,7 +77,7 @@ mod tests {
                     Video {
                         id: 654356453,
                         title: String::from("Bad Boys"),
-                        boxarts: vec![
+                        boxart: vec![
                             Boxart {
                                 width: 200,
                                 height: 200,
@@ -85,7 +108,7 @@ mod tests {
                     Video {
                         id: 65432445,
                         title: String::from("The Chamber"),
-                        boxarts: vec![
+                        boxart: vec![
                             Boxart {
                                 width: 150,
                                 height: 200,
@@ -108,7 +131,7 @@ mod tests {
                     Video {
                         id: 675465,
                         title: String::from("Fracture"),
-                        boxarts: vec![
+                        boxart: vec![
                             Boxart {
                                 width: 200,
                                 height: 200,
@@ -149,25 +172,25 @@ mod tests {
         assert!(video_info.iter().any(|video| {
             video.id == 675465
                 && video.title == "Fracture"
-                && video.boxart == "http://cdn-0.nflximg.com/images/2891/Fracture150.jpg"
+                && video.boxart[0].url == "http://cdn-0.nflximg.com/images/2891/Fracture150.jpg"
         }));
 
         assert!(video_info.iter().any(|video| {
             video.id == 65432445
                 && video.title == "The Chamber"
-                && video.boxart == "http://cdn-0.nflximg.com/images/2891/TheChamber150.jpg"
+                && video.boxart[0].url == "http://cdn-0.nflximg.com/images/2891/TheChamber150.jpg"
         }));
 
         assert!(video_info.iter().any(|video| {
             video.id == 654356453
                 && video.title == "Bad Boys"
-                && video.boxart == "http://cdn-0.nflximg.com/images/2891/BadBoys150.jpg"
+                && video.boxart[0].url == "http://cdn-0.nflximg.com/images/2891/BadBoys150.jpg"
         }));
 
         assert!(video_info.iter().any(|video| {
             video.id == 70111470
                 && video.title == "Die Hard"
-                && video.boxart == "http://cdn-0.nflximg.com/images/2891/DieHard150.jpg"
+                && video.boxart[0].url == "http://cdn-0.nflximg.com/images/2891/DieHard150.jpg"
         }));
     }
 }

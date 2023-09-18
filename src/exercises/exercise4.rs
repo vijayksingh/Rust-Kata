@@ -38,7 +38,7 @@ mod tests {
     #[test]
     fn test_map_negative_numbers() {
         // Test if map function works correctly on a vector of negative numbers.
-        let items = vec![-3, -2, -1];
+        let items: Vec<i32> = vec![-3, -2, -1];
         assert_eq!(map(items, |x| x.abs()), vec![3, 2, 1]);
     }
 

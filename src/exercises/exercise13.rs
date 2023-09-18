@@ -6,9 +6,9 @@
 // a Vec<T> and a function that maps from T -> Vec<String>.
 // Your task is to apply this function to every item in the given vector and flatten the results into a single Vec<String>.
 
-pub fn flat_map<T, F>(_items: Vec<T>, _func: F) -> Vec<String>
+pub fn flat_map<T, U, F>(items: Vec<T>, func: F) -> Vec<U>
 where
-    F: Fn(T) -> Vec<String>,
+    F: Fn(T) -> Vec<U>,
 {
     unimplemented!()
 }
@@ -70,16 +70,21 @@ mod tests {
                 String::from("peach"),
             ],
         ];
+
         assert_eq!(
-            flat_map(items, |x| x.iter().map(|s| s.len()).collect::<Vec<_>>()),
-            vec![5, 6, 5, 6, 6]
+            flat_map(items, |x| x
+                .iter()
+                .map(|s| s.len().to_string())
+                .collect::<Vec<_>>()),
+            vec!["5", "6", "5", "6", "6"]
         );
     }
 
     #[test]
     fn test_flat_map_nested_empty_vec() {
         // Test if flat_map function works correctly on a vector of nested empty vectors.
-        let items = vec![vec![], vec![], vec![]];
-        assert_eq!(flat_map(items, |x| x), vec![]);
+        let items: Vec<Vec<String>> = vec![vec![], vec![], vec![]];
+        let output: Vec<String> = vec![];
+        assert_eq!(flat_map(items, |x| x), output);
     }
 }

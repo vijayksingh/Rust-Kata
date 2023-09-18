@@ -34,6 +34,7 @@ pub struct MovieList {
     videos: Vec<Video>,
 }
 
+#[derive(Debug, PartialEq)]
 pub struct MovieBoxArt {
     id: u32,
     title: String,
