@@ -41,15 +41,10 @@ REFERENCE:
 mod tests {
     use super::*;
 
-    // Add test annotation to convert normal function to test function
     #[test]
     fn get_all_names_test() {
         let names = vec!["Ben", "Jafar", "Matt", "Priya", "Brian"];
-        /*
-        HINT: Here, you're expected to replace the empty string "" with the
-        expected output -- a single string combining all names (each followed by a newline).
-        This will serve as a reference to verify the correctness of your `get_all_names` function.
-        */
-        assert_eq!(get_all_names(names), "");
+        let expected_output = "Ben\nJafar\nMatt\nPriya\nBrian\n";
+        assert_eq!(get_all_names(names), expected_output);
     }
 }

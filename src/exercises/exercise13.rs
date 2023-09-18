@@ -51,4 +51,35 @@ mod tests {
             ]
         );
     }
+
+    #[test]
+    fn test_flat_map_empty_vec() {
+        // Test if flat_map function works correctly on an empty vector.
+        let items: Vec<i32> = vec![];
+        assert_eq!(flat_map(items, |x| vec![x, x + 1]), vec![]);
+    }
+
+    #[test]
+    fn test_flat_map_strings() {
+        // Test if flat_map function works correctly on a vector of vectors of strings.
+        let items = vec![
+            vec![String::from("apple"), String::from("banana")],
+            vec![
+                String::from("lemon"),
+                String::from("orange"),
+                String::from("peach"),
+            ],
+        ];
+        assert_eq!(
+            flat_map(items, |x| x.iter().map(|s| s.len()).collect::<Vec<_>>()),
+            vec![5, 6, 5, 6, 6]
+        );
+    }
+
+    #[test]
+    fn test_flat_map_nested_empty_vec() {
+        // Test if flat_map function works correctly on a vector of nested empty vectors.
+        let items = vec![vec![], vec![], vec![]];
+        assert_eq!(flat_map(items, |x| x), vec![]);
+    }
 }

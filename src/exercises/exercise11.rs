@@ -1,6 +1,6 @@
 // src/exercises/exercise11.rs
 
-// Exercise 11: Use map() and concat_all() to project and flatten the movieLists into a Vector of video ids
+// Exercise 11: Use map() and flat_map() to project and flatten the movieLists into a Vector of video ids
 
 // You've been given a vector `movie_lists` containing structs of type `MovieList`. Each `MovieList` has a name and a vector of `Video`.
 // Your task is to implement a function `map_and_flatten` that takes a Vector of `MovieList` and returns a Vector of u32,
@@ -70,4 +70,5 @@ mod tests {
 
       assert_eq!(map_and_flatten(movie_lists), expected);
   }
+
 }

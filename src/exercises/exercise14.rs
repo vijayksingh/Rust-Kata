@@ -15,20 +15,7 @@ struct MovieList {
 
 // Implement flat_map_video_info function
 fn flat_map_video_info(movie_lists: Vec<MovieList>) -> Vec<Video> {
-    movie_lists
-        .into_iter()
-        .flat_map(|list| list.videos.into_iter())
-        .map(|video| Video {
-            id: video.id,
-            title: video.title,
-            boxart: video
-                .boxarts
-                .into_iter()
-                .find(|b| b.width == 150 && b.height == 200)
-                .expect("No matching boxart found")
-                .url,
-        })
-        .collect()
+    unimplemented!()
 }
 
 #[cfg(test)]
