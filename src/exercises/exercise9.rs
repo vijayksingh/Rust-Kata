@@ -24,7 +24,7 @@ struct Bookmark {
     time: u32,
 }
 
-struct MovieList {
+pub struct MovieList {
     name: String,
     videos: Vec<Video>,
 }
